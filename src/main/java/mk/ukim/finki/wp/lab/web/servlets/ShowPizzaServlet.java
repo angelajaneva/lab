@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet(name = "pizza_servlet", urlPatterns = "/*")
+@WebServlet(name = "pizza_servlet", urlPatterns = "/home")
 public class ShowPizzaServlet extends HttpServlet {
 
     private final PizzaService pizzaService;
@@ -23,7 +23,7 @@ public class ShowPizzaServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         WebContext webContext = new WebContext(req, resp, req.getServletContext());
         webContext.setVariable("pizzas", pizzaService.listPizzas());
         resp.setContentType("text/html; charset=UTF-8");
@@ -31,7 +31,7 @@ public class ShowPizzaServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         HttpSession httpSession = req.getSession(); //pristapuvame sesijata
         String pizzaName = req.getParameter("pizzaName"); //go zemame parametarot od korisnikot
