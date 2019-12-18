@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet(name = "pizza_servlet", urlPatterns = "/*")
+@WebServlet(name = "pizza_servlet", urlPatterns = "/servlet")
 public class ShowPizzaServlet extends HttpServlet {
 
     private final PizzaService pizzaService;
